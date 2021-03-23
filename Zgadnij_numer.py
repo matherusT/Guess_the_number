@@ -33,10 +33,21 @@ end = int(input('Podaj koniec puli: '))
 print('Trwa wybieranie liczby z zakresu: ', start, ' i ', end)
 time.sleep(3)
 wybor = randint(start, end)
+nowa = True
 
-while czy_wygrana:
+while nowa:
     liczba = int(input('Podaj swoja liczbe: '))
-    czy_wygrana(wybor, liczba)
+    if czy_wygrana(wybor, liczba) == False:
+        print()
+        odp = input('Czy chcesz zagrac jeszcze raz? (Y/N): ')
+        if odp.lower() == 'y':
+            nowa = True
+        elif odp.lower() == 'n':
+            nowa = False
+            break
+        else:
+            print('Ups... Blad')
+            break
 
     
 
